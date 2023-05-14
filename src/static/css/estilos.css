@@ -1,0 +1,398 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+
+
+h1,h2,h3,h4,h5,h6
+{
+margin: 0;
+padding: 0;
+
+}
+.cuerpoPagina
+{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.header
+{
+    background: url(../images/Background\ 3.png);
+    height: 600px;
+    display: flex;
+    /*Ajustar el contenido de acuerdoa un tipo de dispositivo*/
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+}
+
+.header-info
+{
+    width: 700px;
+    text-align: center;
+    height: 500px;
+    
+}
+
+h1
+{
+    font-family: 'Righteous', cursive;
+    
+}
+
+.marca
+{
+    font-size: 100px;
+    background: linear-gradient(to right, rgb(150, 9, 179), rgb(49, 15, 143)) no-repeat;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.separador
+{
+    border-bottom: solid rgb(0, 208, 255);
+}
+
+.descHeader
+{
+    color: white;
+    font-family: 'Righteous', cursive;
+
+}
+
+.botonAccion
+{
+    color: white;
+    font-size: 20px;
+    background-color: transparent;
+    border: 1px solid rgb(0, 208, 255);
+    border-radius: 2px;
+    padding: 15px 30px;
+}
+
+.fondoLogo
+{
+    background-color: #4D0D99;
+}
+
+.logoInicial
+{
+    max-width: 1500px;
+    margin: auto;
+    display: block;
+    padding: 30px 0px;
+
+}
+
+.RecomendadosTexto
+{
+    background-color: #000000;
+    text-align: center;
+    margin: 0%;
+}
+
+.RecomendadosTexto p
+{
+    background-color: #000000;
+    text-align: center;
+    margin: 0%;
+}
+
+#RecomendadosComicsMangas
+{
+    width: auto;
+    padding: 100px;
+    margin: auto;
+    display: flex;
+    background-color: #000000;
+}
+
+
+.manga-imagen-recomendado1
+{
+    background-color: #000000; /* Establece el color de fondo del botón */
+    border: none; /* Quita el borde del botón */
+    padding: 0; /* Quita el espacio de relleno del botón */
+}
+.manga-imagen-recomendado1 img
+{
+    width: 100%; /* Establece el ancho de la imagen al 100% del tamaño del botón */
+    height: auto; /* Ajusta la altura de la imagen automáticamente */
+}
+.manga-imagen-recomendado2
+{
+    background-color: #000000; /* Establece el color de fondo del botón */
+    border: none; /* Quita el borde del botón */
+    padding: 0; /* Quita el espacio de relleno del botón */
+}
+.manga-imagen-recomendado2 img
+{
+    width: 67%; /* Establece el ancho de la imagen al 100% del tamaño del botón */
+    height: auto; /* Ajusta la altura de la imagen automáticamente */
+}
+.comic-imagen-recomendado3
+{
+    background-color: #000000; /* Establece el color de fondo del botón */
+    border: none; /* Quita el borde del botón */
+    padding: 0; /* Quita el espacio de relleno del botón */
+}
+.comic-imagen-recomendado3 img
+{
+    width: 86%; /* Establece el ancho de la imagen al 100% del tamaño del botón */
+    height: auto; /* Ajusta la altura de la imagen automáticamente */
+}
+.comic-imagen-recomendado4
+{
+    background-color: #000000; /* Establece el color de fondo del botón */
+    border: none; /* Quita el borde del botón */
+    padding: 0; /* Quita el espacio de relleno del botón */
+}
+.comic-imagen-recomendado4 img
+{
+    width: 56%; /* Establece el ancho de la imagen al 100% del tamaño del botón */
+    height: auto; /* Ajusta la altura de la imagen automáticamente */
+}
+
+
+
+.simpleDiseño
+{
+    background-color: #000000;
+    padding: 100px;
+    text-align: center;
+
+}
+.contenedorDiseñoSimple
+{
+    text-align: center;
+    margin: auto;
+    max-width: 1100px;
+}
+
+h3, h2
+{
+    font-size: 40px;
+    color: #780BA8;
+    font-family: 'Righteous', cursive;
+
+}
+
+p
+{
+    color: #fffbfb;
+    font-family: 'Righteous', cursive;
+
+}
+
+#ComicsMangas
+{
+    width: auto;
+    padding: 100px;
+    margin: auto;
+    display: flex;
+    background-color: #4D0D99;
+}
+
+.manga-imagen
+{
+    background-color: #4D0D99; /* Establece el color de fondo del botón */
+    border: none; /* Quita el borde del botón */
+    padding: 0; /* Quita el espacio de relleno del botón */
+}
+.manga-imagen img
+{
+    width: 68%; /* Establece el ancho de la imagen al 100% del tamaño del botón */
+    height: auto; /* Ajusta la altura de la imagen automáticamente */
+    transition: 0.3s;
+}
+
+.Salto-Mangas h3
+{
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+.Salto-Mangas img:hover
+{
+   box-shadow: 0px 0px 30px rgb(255, 109, 223);
+}
+
+.comic-imagen
+{
+    background-color: #4D0D99; /* Establece el color de fondo del botón */
+    border: none; /* Quita el borde del botón */
+    padding: 0; /* Quita el espacio de relleno del botón */
+}
+.comic-imagen img 
+{
+    width: 70%; /* Establece el ancho de la imagen al 100% del tamaño del botón */
+    height: auto; /* Ajusta la altura de la imagen automáticamente */
+    transition: 0.3s;
+}
+.Salto-Comics h3
+{
+    text-align: center;
+    color: white;
+}
+.Salto-Comics img:hover
+{
+   box-shadow: 0px 0px 30px rgb(252, 0, 0);
+}
+.comics
+{
+    padding: 0%;
+    margin: 0%;
+}
+
+.contendorShowCase
+{
+    background-color: #f6f9f9;
+    
+}
+
+.showcase
+{
+    width: 1100px;
+    padding: 100px 0px;
+    margin: auto; 
+    text-align: center;
+    /*margin-bottom: 90px;*/
+}
+
+.encabezadoShowCase h2
+{
+    margin-bottom: 20px;
+}
+
+.encabezadoShowCase span
+{
+    color:#6a6a6a;
+}
+
+.fila
+{
+    display: flex;
+}
+
+.galeria
+{
+    margin: auto;
+    max-width: 1100px;
+}
+
+.caja-galeria
+{
+    margin-bottom: 30px;
+    margin-right: 30px;
+
+}
+
+
+.encabezadoStay
+{
+    text-align: center;
+    margin-bottom: 40px;
+}
+.encabezadoStay h2
+{
+    color: white;
+    margin-bottom: 10px ;
+    
+}
+
+.encabezadoStay span
+{
+    color: rgb(186, 186, 186);
+    font-family: 'Righteous', cursive;
+
+}
+
+.contacto
+{
+    max-width: 600px;
+    margin: auto;
+
+}
+
+.input
+{
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: transparent;
+    border: 1px solid #8e8e8e;
+    color: rgb(214, 214, 214);
+    border-radius: 3px;
+}
+
+.acciones
+{
+    display: flex;
+    width: 645px;
+}
+
+.check
+{
+    width: 85%;
+    
+}
+
+.btn
+{
+    width: 15%;
+}
+.footer
+{
+    width: auto;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #2A28A2;
+    color: white;
+    
+}
+.redes-sociales
+{
+    margin: 10px;
+}
+
+.Anuncio
+{
+    text-align: center;
+    background-color: #A3CEF0;
+}
+.Anuncio img 
+{
+    width: 50%;
+    
+}
+
+/* Modificaciones y añadidos para el backend: Cuenta de usuario */
+a {
+    text-decoration: none;
+}
+
+#cuentaUsuario {
+
+    display: flex;
+}
+
+#cuentaUsuario h2 {
+    color: white;
+    margin:20px;
+}
+
+#cuentaUsuario a {
+    color: magenta;
+    font-size: 40px;
+    font-family: 'Righteous', cursive;
+    text-decoration: none;
+    margin:20px;
+}
+
+#cuentaUsuario a:visited {
+    color: magenta;
+}
