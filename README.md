@@ -8,6 +8,7 @@ La aplicacion fue creada con HTML y CSS para el frontend. Para el backend se uti
 
 ![home pic](https://github.com/0scarMoyeda/Anicom/assets/121258455/44fdbcdb-5f4d-4971-a776-33843d76e7ff)
 
+Nota: para poder correr la aplicacion, se necesita de algun entorno de desarrollo local como XAMPP o WampServer
 -------------------------------------------
 Esta app ha sido creada con nuestro equipo:
 - Oscar Julian Moyeda Espinoza
