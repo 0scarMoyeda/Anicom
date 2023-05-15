@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manga</title>
+    <link rel="stylesheet" href="../static/css/estilos.css">
+    <link rel="stylesheet" href="../static/css/estilosContenido.css">
+</head>
+<body>
+    <div class="fondoLogo">
+        <div class="logoInicial">
+            <img src="../static/images/LOGO_7-removebg-preview.png" alt="logo">
+        </div>
+
+        <div id="cuentaUsuario">
+            <h2>Bienvenido, {{username}}!</h2>
+            <a href="{{url_for('logout')}}">Cerrar Sesion</a>
+        </div>
+
+    </div>
+
+
+    <!-- Inserte manga/comic aqui -->
+    <div>
+
+    </div>
+
+
+    <!-- Seccion de Comentarios -->
+    <div id="seccionComentarios">
+        <h2>Comments</h2>
+
+        <div>
+        <!-- FORM para añadir un nuevo comentario -->
+        <form action="/add_comment" method="post">
+          <textarea id="txtComentario" name="comment_text" placeholder="Agrega un comentario"></textarea>
+          <input id="btnComentar" type="submit" value="Comentar">
+        </form>
+        </div>
+
+        {% for comment in comments %}
+        <div class="comment">
+            <h4 class="nombreUsuario">{{ comment[3] }}</h4>
+            <h5 class="fecha">Fecha: {{ comment[5] }}</h5>
+            <p class="comentario">{{ comment[4] }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
