@@ -36,13 +36,31 @@ def home():
 # Manga template for testing
 @app.route('/plantilla_manga')
 def manga_template():
+    content_data = get_content(1)
+    user_data = get_current_user(session['username'])
     comments = get_all_comments(1)
-    print(comments)
-    return render_template('plantilla_manga.html', username=session['username'], comments=comments)
+
+    print(content_data)
+    print(user_data)
+
+    try:
+        user_rating = get_user_rating(content_data[0], user_data[0])
+        user_rating = user_rating[3]
+    except TypeError as error:
+        print("The user hasn't liked nor disliked the content yet")
+        user_rating = 0
+
+    content_score = get_content_score(content_data[0])
+
+    print('Rating es: '+str(user_rating))
+
+    return render_template('plantilla_manga.html', username=session['username'],
+                           content=content_data, comments=comments, rating_value=user_rating, content_score=content_score)
 
 
 @app.route('/add_comment', methods=['POST'])
 def add_comment():
+
     # get the manga/comic data to use it later on
     content_data = get_content(1)
     # and the user's data
@@ -64,7 +82,53 @@ def add_comment():
     # get all the comments to display them
     comments = get_all_comments(content_data[0])
 
-    return render_template('plantilla_manga.html', comments=comments)
+    # get data so it won't cause data to hide
+    try:
+        user_rating = get_user_rating(content_data[0], user_data[0])
+        user_rating = user_rating[3]
+    except TypeError as error:
+        print("The user hasn't liked nor disliked the content yet")
+        user_rating = 0
+    content_score = get_content_score(content_data[0])
+
+    return render_template('plantilla_manga.html', username=session['username'], content=content_data,
+                           comments=comments, rating_value=user_rating, content_score=content_score)
+
+
+# Like and Dislike rating system in each manga/comic
+@app.route('/add_rating', methods=['POST'])
+def add_rating():
+    content_data = get_content(1)
+    user_data = get_current_user(session['username'])
+
+    # Get the like or dislike value from the user
+    rating_value = 1 if request.form['rating_value'] == 'like' else -1
+
+    # Now add the like or dislike value to the ratings table
+    # Make sure the user hadn't liked before
+    cursor.execute('SELECT * FROM ratings WHERE content_id = %s AND user_id = %s', (content_data[0], user_data[0]))
+    existing_rating = cursor.fetchone()
+
+    if existing_rating:
+        # If the user has already rated, check if the rating value is the same
+        if existing_rating[3] == rating_value:
+            # If the rating value is the same, delete the rating
+            cursor.execute('DELETE FROM ratings WHERE id = %s', (existing_rating[0],))
+            print("Rating deleted")
+        else:
+            # If the rating value is different, update the rating value
+            cursor.execute('UPDATE ratings SET rating_value = %s WHERE id = %s',
+                           (rating_value, existing_rating[0]))
+            print("Rating updated")
+    else:
+        # If the user hasn't rated, insert the rating
+        cursor.execute('INSERT INTO ratings VALUES (NULL, %s, %s, %s)', (content_data[0], user_data[0], rating_value))
+        print("Rating added")
+
+    connection.commit()
+
+    # Redirect the user back to the page or show a success message
+    return redirect(url_for('manga_template'))
 
 
 # login page logic (getting the username and password to validate)
@@ -143,10 +207,6 @@ def get_current_user(user_session):
 
 
 def get_all_comments(content_id):
-    # cursor.execute('SELECT * FROM comments WHERE content_id = %s', (content_id,))
-    # comments = cursor.fetchall()
-    # return comments
-
     query = '''
         SELECT comments.id, comments.content_id, comments.user_id, users.username, comments.comment_text, comments.comment_date
         FROM comments
@@ -156,6 +216,20 @@ def get_all_comments(content_id):
         '''
     cursor.execute(query, (content_id,))
     return cursor.fetchall()
+
+
+# This is the user rating they upload when clicking like or dislike
+def get_user_rating(content_id, user_id):
+    cursor.execute('SELECT * FROM ratings WHERE content_id = %s AND user_id = %s', (content_id, user_id))
+    return cursor.fetchone()
+
+
+# This is the contents total score by 100%, given the content id
+def get_content_score(content_id):
+    cursor.execute('SELECT CASE WHEN COUNT(*) > 0 THEN ROUND((SUM(rating_value) / COUNT(*) + 1) * 50, 2)'
+                   'ELSE 0 END AS total_score FROM ratings WHERE content_id = %s', (content_id,))
+    result = cursor.fetchone()
+    return result[0]
 
 
 # Run the app
