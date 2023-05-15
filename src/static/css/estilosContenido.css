@@ -3,6 +3,13 @@ p, h4, h5 {
     font-family: 'Righteous', cursive;
 }
 
+#califGlobal {
+    font-family: 'Righteous', cursive;
+    font-size: 50px;
+    font-weight: bold;
+    color: #01bcf2;
+}
+
 #seccionComentarios {
 }
 
@@ -14,7 +21,7 @@ p, h4, h5 {
     resize: none;
     width: 800px;
     height: 50px;
-    font-family: 'Righteous';
+    font-family: 'Righteous', Arial;
     font-size: 16px;
 }
 
@@ -31,6 +38,29 @@ p, h4, h5 {
     color: #6823ba;
 }
 
-.fecha {
-    font-size: 14px;
+/* Sistema de likes */
+.puntuacion {
+    border: 2px solid black;
+    border-radius: 100%;
+    padding: 18px 20px;
+    margin: 5px;
+    font-size: 25px;
+    background-color: white
+
+    transition: 0.1s;
 }
+
+.puntuacion:hover {
+    background-color: #ebebeb;
+}
+
+#liked, #disliked {
+    background-color: #6620b9;
+    color: white;
+    transition: 0.1s;
+}
+
+#liked:hover, #disliked:hover {
+    background-color: #7724da;
+}
+

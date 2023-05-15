@@ -19,6 +19,40 @@
 
     </div>
 
+    <!-- Manga/comic info -->
+    <div id="info">
+        <h3>
+            {{content[1]}}
+            {{user_}}
+        </h3>
+        <h2>
+            {{content[2]}}
+        </h2>
+        <p>
+            Descripcion:<br>{{content[4]}}
+        </p>
+    </div>
+
+    <div>
+        <h3>
+           Puntuacion global
+        </h3>
+        <span id="califGlobal">{{content_score}} %</span>
+    </div>
+
+    <!-- Sistema de likes -->
+    <div id="likes">
+        <h3>Califica ;)</h3>
+        <form action="/add_rating" method="post">
+            <button class="puntuacion" type="submit" name="rating_value" value="like" id="{% if rating_value == 1 %}liked{% endif %}">
+                <ion-icon name="thumbs-up"></ion-icon>
+            </button>
+            <button class="puntuacion" type="submit" name="rating_value" value="dislike" id="{% if rating_value == -1 %}disliked{% endif %}">
+                <ion-icon name="thumbs-down"></ion-icon>
+            </button>
+        </form>
+    </div>
+
 
     <!-- Inserte manga/comic aqui -->
     <div>
@@ -28,7 +62,7 @@
 
     <!-- Seccion de Comentarios -->
     <div id="seccionComentarios">
-        <h2>Comments</h2>
+        <h2>Comentarios</h2>
 
         <div>
         <!-- FORM para añadir un nuevo comentario -->
@@ -46,5 +80,23 @@
         </div>
         {% endfor %}
     </div>
+
+    <!-- Usando JQUERY para modificar los botones de like y dislike cuando son presionados -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Toggle the colors when the user clicks the like or dislike button
+            $('#likes button').click(function() {
+                $(this).toggleClass('liked');
+                $(this).siblings().removeClass('liked');
+                $(this).toggleClass('disliked');
+                $(this).siblings().removeClass('disliked');
+            });
+        });
+    </script>
+
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
