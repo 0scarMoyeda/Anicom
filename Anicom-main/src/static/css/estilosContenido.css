@@ -1,0 +1,116 @@
+body{
+    background-color: rgb(22, 22, 22);
+}
+
+h2{
+    text-align: center;
+}
+
+p, h4, h5 {
+    color: white;
+    font-family: 'Righteous', cursive;
+}
+
+#califGlobal {
+    font-family: 'Righteous', cursive;
+    font-size: 50px;
+    font-weight: bold;
+    color: #01bcf2;
+}
+
+
+.comment {
+    background-color: rgb(51, 49, 49);
+    border-radius: 10px;
+    padding: 3px;
+}
+
+.comment p{
+    margin-bottom: 10px;
+}
+
+.divComentarios{
+    display:inline;
+    align-items: baseline;
+}
+
+#txtComentario {
+    resize: none;
+    width: 800px;
+    height: 50px;
+    font-family: 'Righteous', Arial;
+    font-size: 16px;
+    background-color: rgb(51, 49, 49);
+    color: white;
+}
+
+#btnComentar {
+    background-color: #4D0D99;
+    color: white;
+    font-family: 'Righteous', cursive;
+    font-size: larger;
+    border: none;
+    padding: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.nombreUsuario {
+    font-size: 20px;
+    color: #6823ba;
+}
+
+#info, #Puntuacion-G{
+    margin: 20px;
+}
+
+/* Sistema de likes */
+
+#likes{
+    margin: 20px;
+}
+
+.puntuacion {
+    border: 2px solid black;
+    border-radius: 100%;
+    padding: 18px 20px;
+    margin: 5px;
+    font-size: 25px;
+    background-color: rgb(41, 39, 39);
+    color: white;
+
+    transition: 0.1s;
+}
+
+.form-comentario{
+    text-align: center;
+}
+
+#seccionComentarios{
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+}
+
+#seccionComentarios h2{
+    margin-bottom: 20px;
+}
+
+.puntuacion:hover {
+    background-color: #919090;
+}
+
+#liked, #disliked {
+    background-color: #6620b9;
+    color: white;
+    transition: 0.1s;
+}
+
+#liked:hover, #disliked:hover {
+    background-color: #7724da;
+}
+
+.nombreUsuario, .fecha, .comentario{
+    margin-left: 20px;
+    margin-top:10px ;
+}

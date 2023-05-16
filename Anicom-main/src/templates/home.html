@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../static/css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="cuerpoPagina">
+
+    <div class="fondoLogo">
+        <div class="logoInicial">
+            <img src="../static/images/LOGO_7-removebg-preview.png" alt="logo">
+        </div>
+
+        <div id="cuentaUsuario">
+            <h2>Bienvenido, {{username}}!</h2>
+            <a href="{{url_for('logout')}}">Cerrar Sesion</a>
+        </div>
+        
+    </div>
+    
+    <header class="header">
+        <div class="header-info">
+            <h1 class="marca"> ANI☾OM</h1>
+            <div class="separador"></div>
+            <p class="descHeader">Para leer no hay excusas.</p>
+            
+        </div>
+    </header>
+    <section class="simpleDiseño">
+        <div class="contenedorDiseñoSimple">
+            
+            <h3>Mangas y comics</h3>
+            
+
+            <p>
+                Una lugar donde encontras lo mejor de los comics y mangas.
+            </p>
+            
+        </div>
+    </section>
+
+        <section class="ContenedorComicsMangas" id="ComicsMangas">
+
+        <div class="Salto-Mangas">
+            <a href="{{url_for('manga_template')}}">
+                <button class="manga-imagen">
+                    <img src="../static/images/Manga.jpg" alt="Botón con imagenManga">
+                </button>
+                <h3 id="TextoMangas">Mangas</h3>
+            </a>    
+        </div>
+
+        <div class="Salto-Comics">
+            <a href="comics_index.html">
+                <button class="comic-imagen">
+                    <img src="../static/images/Comic.jpg" alt="Botón con imagenComic">
+                </button>
+                <h3>Comics</h3>
+            </a>
+        </div>
+
+        </section>
+                 
+     
+        <div class="RecomendadosTexto">
+        <h3>Recomendados</h3>
+        <p>Lo mas visto hoy</p>
+        </div>
+
+        <section class="Recomendados" id="RecomendadosComicsMangas">
+                <a href="#">
+                    <button class="manga-imagen-recomendado1" >
+                        <img src="../static/images/Overlord 1.jpg" alt="Botón con imagenManga1">
+                    </button>
+                </a>
+        
+                <a href="#">
+                    <button class="manga-imagen-recomendado2">
+                        <img src="../static/images/Kaguya sama 1.jpg" alt="Botón con imagenManga2">
+                    </button>
+                </a>
+
+                <a href="#">
+                    <button class="comic-imagen-recomendado3" >
+                        <img src="../static/images/GALACTA.jpg" alt="Botón con imagenComic3">
+                    </button>
+                </a>
+        
+                <a href="#">
+                    <button class="comic-imagen-recomendado4">
+                        <img src="../static/images/JusticeLeagueOrigen.jpg" alt="Botón con imagenComic4">
+                    </button>
+                </a>
+
+        </section>
+
+        <div class="Anuncio">
+            <img src="../static/images/Anuncio.png" alt="Publicidad">
+
+        </div>
+        <footer class="footer">
+            <span> Copyright 2023 ANICON </span>
+            
+            <div class="redes-sociales">
+                <a href="#">
+                    <img src="../static/images/Discord-ICON.png" alt="facebook">
+                </a>
+
+                <a href="#">
+                    <img src="../static/images/Twitch-ICON.png" alt="facebook">
+                </a>
+
+
+                <a href="#">
+                    <img src="../static/images/Reddit-ICON.png" alt="facebook">
+                </a>
+            </div>
+        </footer>
+        
+
+</body>
+</html>
