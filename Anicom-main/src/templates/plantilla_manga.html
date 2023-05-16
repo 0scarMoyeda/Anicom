@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manga</title>
+    <link rel="stylesheet" href="../static/css/estilos.css">
+    <link rel="stylesheet" href="../static/css/estilosContenido.css">
+</head>
+<body>
+    <div class="fondoLogo">
+        <div class="logoInicial">
+            <img src="../static/images/LOGO_7-removebg-preview.png" alt="logo">
+        </div>
+
+        <div id="cuentaUsuario">
+            <h2>Bienvenido, {{username}}!</h2>
+            <a href="{{url_for('logout')}}">Cerrar Sesion</a>
+        </div>
+
+    </div>
+
+    <!-- Manga/comic info -->
+    <div id="info">
+        <h3>
+            {{content[1]}}
+            {{user_}}
+        </h3>
+        <h2>
+            {{content[2]}}
+        </h2>
+        <p>
+            Descripcion:<br>{{content[4]}}
+        </p>
+    </div>
+
+    <div id="Puntuacion-G">
+        <h3>
+           Puntuacion global
+        </h3>
+        <span id="califGlobal">{{content_score}} %</span>
+    </div>
+
+    <!-- Sistema de likes -->
+    <div id="likes">
+        <h3>Califica ;</h3>
+        <form action="/add_rating" method="post">
+            <button class="puntuacion" type="submit" name="rating_value" value="like" id="{% if rating_value == 1 %}liked{% endif %}">
+                <ion-icon name="thumbs-up"></ion-icon>
+            </button>
+            <button class="puntuacion" type="submit" name="rating_value" value="dislike" id="{% if rating_value == -1 %}disliked{% endif %}">
+                <ion-icon name="thumbs-down"></ion-icon>
+            </button>
+        </form>
+    </div>
+
+
+    <!-- Inserte manga/comic aqui -->
+    <div class="Manga-pdf">
+        <embed src="../static/images/OVER CAPS 01.pdf" width="500px" height="700px" type="application/pdf" class="iframe-pdf">
+    </div>
+
+
+    <!-- Seccion de Comentarios -->
+    <div id="seccionComentarios">
+        <h2>Comentarios</h2>
+
+        <div class="divComentarios">
+        <!-- FORM para añadir un nuevo comentario -->
+        <form action="/add_comment" method="post" class="form-comentario">
+          <textarea id="txtComentario" name="comment_text" placeholder="Agrega un comentario"></textarea>
+          <input id="btnComentar" type="submit" value="Comentar">
+        </form>
+        </div>
+
+        {% for comment in comments %}
+        <div class="comment">
+            <h4 class="nombreUsuario">{{ comment[3] }}</h4>
+            <h5 class="fecha">Fecha: {{ comment[5] }}</h5>
+            <p class="comentario">{{ comment[4] }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Usando JQUERY para modificar los botones de like y dislike cuando son presionados -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Toggle the colors when the user clicks the like or dislike button
+            $('#likes button').click(function() {
+                $(this).toggleClass('liked');
+                $(this).siblings().removeClass('liked');
+                $(this).toggleClass('disliked');
+                $(this).siblings().removeClass('disliked');
+            });
+        });
+    </script>
+
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
