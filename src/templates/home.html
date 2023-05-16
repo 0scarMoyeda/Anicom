@@ -13,7 +13,9 @@
 
     <div class="fondoLogo">
         <div class="logoInicial">
-            <img src="../static/images/LOGO_7-removebg-preview.png" alt="logo">
+            <a href="{{url_for('home')}}">
+                <img src="../static/images/LOGO_7-removebg-preview.png" alt="logo">
+            </a>
         </div>
 
         <div id="cuentaUsuario">
@@ -47,7 +49,7 @@
         <section class="ContenedorComicsMangas" id="ComicsMangas">
 
         <div class="Salto-Mangas">
-            <a href="{{url_for('manga_template')}}">
+            <a href="{{url_for('mangas')}}">
                 <button class="manga-imagen">
                     <img src="../static/images/Manga.jpg" alt="Botón con imagenManga">
                 </button>
@@ -56,7 +58,7 @@
         </div>
 
         <div class="Salto-Comics">
-            <a href="comics_index.html">
+            <a href="{{url_for('comics')}}">
                 <button class="comic-imagen">
                     <img src="../static/images/Comic.jpg" alt="Botón con imagenComic">
                 </button>
@@ -73,29 +75,31 @@
         </div>
 
         <section class="Recomendados" id="RecomendadosComicsMangas">
-                <a href="#">
+                <a href="{{url_for('manga_template', manga_id=4)}}">
                     <button class="manga-imagen-recomendado1" >
-                        <img src="../static/images/Overlord 1.jpg" alt="Botón con imagenManga1">
+                        <img class="content-image" src="../static/images/Overlord 1.jpg" alt="Botón con imagenManga1">
                     </button>
                 </a>
         
-                <a href="#">
+                <a href="{{url_for('manga_template', manga_id=2)}}">
                     <button class="manga-imagen-recomendado2">
-                        <img src="../static/images/Kaguya sama 1.jpg" alt="Botón con imagenManga2">
+                        <img class="content-image" src="../static/images/Kaguya sama 1.jpg" alt="Botón con imagenManga2">
                     </button>
                 </a>
 
-                <a href="#">
+                <a href="{{url_for('manga_template', manga_id=6)}}">
                     <button class="comic-imagen-recomendado3" >
-                        <img src="../static/images/GALACTA.jpg" alt="Botón con imagenComic3">
+                        <img class="content-image" src="../static/images/GALACTA.jpg" alt="Botón con imagenComic3">
                     </button>
                 </a>
-        
-                <a href="#">
+
+                <!--
+                <a href="{{url_for('manga_template', manga_id=8)}}">
                     <button class="comic-imagen-recomendado4">
-                        <img src="../static/images/JusticeLeagueOrigen.jpg" alt="Botón con imagenComic4">
+                        <img src="../static/images/Amazing Fantasy Spider-Man.jpg" alt="Botón con imagenComic4">
                     </button>
                 </a>
+                -->
 
         </section>
 
@@ -104,19 +108,19 @@
 
         </div>
         <footer class="footer">
-            <span> Copyright 2023 ANICON </span>
+            <span> Copyright 2023 ANICOM </span>
             
             <div class="redes-sociales">
-                <a href="#">
+                <a href="https://discord.com/">
                     <img src="../static/images/Discord-ICON.png" alt="facebook">
                 </a>
 
-                <a href="#">
+                <a href="https://www.facebook.com/">
                     <img src="../static/images/Twitch-ICON.png" alt="facebook">
                 </a>
 
 
-                <a href="#">
+                <a href="https://www.reddit.com/">
                     <img src="../static/images/Reddit-ICON.png" alt="facebook">
                 </a>
             </div>

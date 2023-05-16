@@ -33,12 +33,24 @@ def home():
     return render_template('home.html', username=session['username'])
 
 
+# Mangas
+@app.route('/mangas')
+def mangas():
+    return render_template('mangas_index.html', username=session['username'])
+
+
+# Comics
+@app.route('/comics')
+def comics():
+    return render_template('comics_index.html', username=session['username'])
+
+
 # Manga template for testing
-@app.route('/plantilla_manga')
-def manga_template():
-    content_data = get_content(1)
+@app.route('/manga/<int:manga_id>')
+def manga_template(manga_id):
+    content_data = get_content(manga_id)
     user_data = get_current_user(session['username'])
-    comments = get_all_comments(1)
+    comments = get_all_comments(manga_id)
 
     print(content_data)
     print(user_data)
@@ -51,6 +63,7 @@ def manga_template():
         user_rating = 0
 
     content_score = get_content_score(content_data[0])
+    print(content_data)
 
     print('Rating es: '+str(user_rating))
 
@@ -58,11 +71,11 @@ def manga_template():
                            content=content_data, comments=comments, rating_value=user_rating, content_score=content_score)
 
 
-@app.route('/add_comment', methods=['POST'])
-def add_comment():
+@app.route('/add_comment/<int:content_id>', methods=['POST'])
+def add_comment(content_id):
 
     # get the manga/comic data to use it later on
-    content_data = get_content(1)
+    content_data = get_content(content_id)
     # and the user's data
     user_data = get_current_user(session['username'])
 
@@ -96,9 +109,9 @@ def add_comment():
 
 
 # Like and Dislike rating system in each manga/comic
-@app.route('/add_rating', methods=['POST'])
-def add_rating():
-    content_data = get_content(1)
+@app.route('/add_rating/<int:content_id>', methods=['POST'])
+def add_rating(content_id):
+    content_data = get_content(content_id)
     user_data = get_current_user(session['username'])
 
     # Get the like or dislike value from the user
@@ -128,7 +141,10 @@ def add_rating():
     connection.commit()
 
     # Redirect the user back to the page or show a success message
-    return redirect(url_for('manga_template'))
+    #return redirect(url_for('manga_template'))
+    return render_template('plantilla_manga.html', username=session['username'], content=content_data,
+                           comments=get_all_comments(content_id), rating_value=rating_value,
+                           content_score=get_content_score(content_id))
 
 
 # login page logic (getting the username and password to validate)

@@ -9,7 +9,9 @@
 <body>
     <div class="fondoLogo">
         <div class="logoInicial">
-            <img src="../static/images/LOGO_7-removebg-preview.png" alt="logo">
+            <a href="{{url_for('home')}}">
+                <img src="../static/images/LOGO_7-removebg-preview.png" alt="logo">
+            </a>
         </div>
 
         <div id="cuentaUsuario">
@@ -19,21 +21,28 @@
 
     </div>
 
+    <div class="Anuncio">
+        <img src="../static/images/Anuncio.png" alt="Publicidad">
+    </div>
+
     <!-- Manga/comic info -->
     <div id="info">
-        <h3>
+        <h3 id="mangaType">
             {{content[1]}}
-            {{user_}}
         </h3>
-        <h2>
+        <h2 id="mangaTitle">
             {{content[2]}}
         </h2>
-        <p>
+        <p id="author">
+            Autor(es):<br>{{content[3]}}
+        </p>
+
+        <p id="description">
             Descripcion:<br>{{content[4]}}
         </p>
     </div>
 
-    <div>
+    <div id="Puntuacion-G">
         <h3>
            Puntuacion global
         </h3>
@@ -42,8 +51,8 @@
 
     <!-- Sistema de likes -->
     <div id="likes">
-        <h3>Califica ;)</h3>
-        <form action="/add_rating" method="post">
+        <h3>Califica</h3>
+        <form action="{{ url_for('add_rating', content_id=content[0]) }}" method="post">
             <button class="puntuacion" type="submit" name="rating_value" value="like" id="{% if rating_value == 1 %}liked{% endif %}">
                 <ion-icon name="thumbs-up"></ion-icon>
             </button>
@@ -55,8 +64,8 @@
 
 
     <!-- Inserte manga/comic aqui -->
-    <div>
-
+    <div class="Manga-pdf">
+        <embed src="../static/mangas/manga{{content[0]}}.pdf" width="500px" height="700px" type="application/pdf" class="iframe-pdf">
     </div>
 
 
@@ -64,9 +73,9 @@
     <div id="seccionComentarios">
         <h2>Comentarios</h2>
 
-        <div>
+        <div class="divComentarios">
         <!-- FORM para añadir un nuevo comentario -->
-        <form action="/add_comment" method="post">
+        <form action="{{ url_for('add_comment', content_id=content[0]) }}" method="post" class="form-comentario">
           <textarea id="txtComentario" name="comment_text" placeholder="Agrega un comentario"></textarea>
           <input id="btnComentar" type="submit" value="Comentar">
         </form>
@@ -98,5 +107,9 @@
     <!-- Ionicons -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <div class="Anuncio">
+    <img src="../static/images/Anuncio.png" alt="Publicidad">
+    </div>
 </body>
 </html>

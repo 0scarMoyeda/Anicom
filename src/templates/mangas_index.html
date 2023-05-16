@@ -7,52 +7,60 @@
     <title>MANGAS</title>
     <link rel="stylesheet" href="../static/css/estilosMangas.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../static/css/estilosHeader.css">
 </head>
 
 <body class="cuerpoPagina">
 
     <div class="fondoLogo">
         <div class="logoInicial">
-            <img src="../static/images/LOGO_7-removebg-preview.png" alt="logo">
+            <a href="{{url_for('home')}}">
+                <img src="../static/images/LOGO_7-removebg-preview.png" alt="logo">
+            </a>
+        </div>
+
+        <div id="cuentaUsuario">
+            <h2>Bienvenido, {{username}}!</h2>
+            <a href="{{url_for('logout')}}">Cerrar Sesion</a>
         </div>
     </div>
 
     <header class="header">
         <div class="header-info">
-            <h1 class="marca"> MANGAS</h1>
+            <h1 class="marca">MANGAS</h1>
             <div class="separador"></div> 
         </div>
     </header>
 
     <section class="Catalago" id="CatalagoMangas">
-        <a href="mangas_index.html">
+        <a href="{{url_for('manga_template', manga_id=4)}}">
             <button class="manga-imagen-Overlord" >
                 <img src="../static/images/Overlord 1.jpg" alt="Botón con imagenManga1">
             </button>
         </a>
 
-        <a href="comics_index.html">
+        <a href="{{url_for('manga_template', manga_id=2)}}">
             <button class="manga-imagen-Kaguya">
                 <img src="../static/images/Kaguya sama 1.jpg" alt="Botón con imagenManga2">
             </button>
         </a>
 
-        <a href="mangas_index.html">
+        <a href="{{url_for('manga_template', manga_id=3)}}">
             <button class="manga-imagen-Komi" >
                 <img src="../static/images/Komi san 1.jpg" alt="Botón con imagenManga3">
             </button>
         </a>
 
-        <a href="comics_index.html">
+        <a href="{{url_for('manga_template', manga_id=1)}}">
             <button class="manga-imagen-Quintillizas">
                 <img src="../static/images/Las Quintillizas 1.webp" alt="Botón con imagenManga4">
             </button>
         </a>
 
 </section>
+
 <div class="Anuncio">
     <img src="../static/images/Anuncio.png" alt="Publicidad">
-
 </div>
     
 </body>

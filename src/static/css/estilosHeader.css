@@ -1,0 +1,28 @@
+.fondoLogo {
+    background-color: #4D0D99;
+    display: flex;
+}
+
+#cuentaUsuario {
+    margin-top: 20px;
+    display: flex;
+}
+
+#cuentaUsuario h2 {
+    color: white;
+    margin: 20px;
+    font-size: 40px;
+    font-family: 'Righteous', cursive;
+}
+
+#cuentaUsuario a {
+    color: magenta;
+    font-size: 40px;
+    font-family: 'Righteous', cursive;
+    text-decoration: none;
+    margin:20px;
+}
+
+#cuentaUsuario a:visited {
+    color: magenta;
+}

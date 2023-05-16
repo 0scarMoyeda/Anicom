@@ -1,7 +1,33 @@
+body{
+    background-color: rgb(22, 22, 22);
+}
+
+h2{
+    text-align: center;
+}
+
 p, h4, h5 {
-    color: black;
+    color: white;
     font-family: 'Righteous', cursive;
 }
+
+
+#mangaType {
+    margin: auto;
+    color: #3fcc75
+}
+
+#author {
+    color: #3fcc75;
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+
+#description {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
 
 #califGlobal {
     font-family: 'Righteous', cursive;
@@ -10,11 +36,21 @@ p, h4, h5 {
     color: #01bcf2;
 }
 
-#seccionComentarios {
-}
 
 .comment {
-    background-color: #ebebeb;
+    background-color: rgb(51, 49, 49);
+    border-radius: 10px;
+    padding: 3px;
+    margin-bottom: 10px;
+}
+
+.comment p{
+    margin-bottom: 10px;
+}
+
+.divComentarios{
+    display:inline;
+    align-items: baseline;
 }
 
 #txtComentario {
@@ -23,6 +59,8 @@ p, h4, h5 {
     height: 50px;
     font-family: 'Righteous', Arial;
     font-size: 16px;
+    background-color: rgb(51, 49, 49);
+    color: white;
 }
 
 #btnComentar {
@@ -31,27 +69,54 @@ p, h4, h5 {
     font-family: 'Righteous', cursive;
     font-size: larger;
     border: none;
+    padding: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 
 .nombreUsuario {
     font-size: 20px;
-    color: #6823ba;
+    color: #7d37d1;
+}
+
+#info, #Puntuacion-G{
+    margin: 20px;
 }
 
 /* Sistema de likes */
+
+#likes{
+    margin: 20px;
+}
+
 .puntuacion {
     border: 2px solid black;
     border-radius: 100%;
     padding: 18px 20px;
     margin: 5px;
     font-size: 25px;
-    background-color: white
+    background-color: rgb(41, 39, 39);
+    color: white;
 
     transition: 0.1s;
 }
 
+.form-comentario{
+    text-align: center;
+}
+
+#seccionComentarios{
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+}
+
+#seccionComentarios h2{
+    margin-bottom: 20px;
+}
+
 .puntuacion:hover {
-    background-color: #ebebeb;
+    background-color: #919090;
 }
 
 #liked, #disliked {
@@ -64,3 +129,7 @@ p, h4, h5 {
     background-color: #7724da;
 }
 
+.nombreUsuario, .fecha, .comentario{
+    margin-left: 20px;
+    margin-top:10px ;
+}

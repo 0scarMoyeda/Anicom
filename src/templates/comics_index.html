@@ -7,13 +7,21 @@
     <title>COMICS</title>
     <link rel="stylesheet" href="../static/css/estilosComics.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../static/css/estilosHeader.css">
 </head>
 
 <body class="cuerpoPagina">
 
     <div class="fondoLogo">
         <div class="logoInicial">
-            <img src="../static/images/LOGO_7-removebg-preview.png" alt="logo">
+            <a href="{{url_for('home')}}">
+                <img src="../static/images/LOGO_7-removebg-preview.png" alt="logo">
+            </a>
+        </div>
+
+        <div id="cuentaUsuario">
+            <h2>Bienvenido, {{username}}!</h2>
+            <a href="{{url_for('logout')}}">Cerrar Sesion</a>
         </div>
     </div>
 
@@ -25,34 +33,34 @@
     </header>
 
     <section class="Catalago" id="CatalagoMangas">
-        <a href="mangas_index.html">
+        <a href="{{url_for('manga_template', manga_id=5)}}">
             <button class="comic-imagen-BatmanySpiderman" >
                 <img src="../static/images/BATMAN Y SPIDERMAN CROSSOVER.jpg" alt="Botón con imagenManga1">
             </button>
         </a>
 
-        <a href="comics_index.html">
+        <a href="{{url_for('manga_template', manga_id=6)}}">
             <button class="comic-imagen-Galacta">
                 <img src="../static/images/GALACTA.jpg" alt="Botón con imagenManga2">
             </button>
         </a>
 
-        <a href="mangas_index.html">
+        <a href="{{url_for('manga_template', manga_id=7)}}">
             <button class="comic-imagen-StarWars-LEGACY" >
                 <img src="../static/images/STARWARS LEGACY.jpg" alt="Botón con imagenComic3">
             </button>
         </a>
 
-        <a href="comics_index.html">
+        <a href="{{url_for('manga_template', manga_id=8)}}">
             <button class="comic-imagen-AmazingFantasySpider-Man">
                 <img src="../static/images/Amazing Fantasy Spider-Man.jpg" alt="Botón con imagenComic4">
             </button>
         </a>
 
 </section>
+
 <div class="Anuncio">
     <img src="../static/images/Anuncio.png" alt="Publicidad">
-
 </div>
     
 </body>
